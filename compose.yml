@@ -1,0 +1,17 @@
+services:
+  auth-backend:
+    build: .
+    environment:
+      - ROOT_DOMAIN=${ROOT_DOMAIN}
+      - AUTH_CLIENT_URL=${AUTH_CLIENT_URL}
+      - NODE_ENV=production
+      - REDIS_HOST=cache
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - PGHOST=${PGHOST}
+      - PGDATABASE=${PGDATABASE}
+      - PGUSER=${PGUSER}
+      - PGPASSWORD=${PGPASSWORD}
+    ports:
+      - 3001:3001
+    networks:
+      - local-repository_api-net
